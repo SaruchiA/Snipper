@@ -77,15 +77,34 @@ namespace WindowsFormsApplication1
                     else if (cutOff < str.Length)
                     {
                         s = str.Substring(0, cutOff + 1).ToCharArray();
-                    
-                    if (!isSpecial(s[cutOff - 1]))
-                    {
-                        if (isSpecial(s[cutOff]))
+
+                        if (!isSpecial(s[cutOff - 1]))
                         {
-                            result = new string(s);
+                            if (isSpecial(s[cutOff]))
+                            {
+                                result = new string(s);
+                            }
+                            else
+                            {
+                                for (int i = (cutOff); i > 0; i--)
+                                {
+                                    if (s[i] == ' ')
+                                    {
+                                        int d = i;
+                                        result = (new string(s)).Substring(0, d);
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        result = (new string(s)).Substring(0, (s.Length - 1));
+                                        break;
+                                    }
+                                }
+                            }
                         }
                         else
                         {
+                            result = new string(s);
                             for (int i = (cutOff); i > 0; i--)
                             {
                                 if (s[i] == ' ')
@@ -96,14 +115,12 @@ namespace WindowsFormsApplication1
                                 }
                                 else
                                 {
-                                    result = (new string(s)).Substring (0,(s.Length -1));
+                                    result = (new string(s)).Substring(0, (s.Length - 1));
                                     break;
                                 }
                             }
+
                         }
-                    }
-                    else
-                        result = new string(s);
                     }
                 }
 
