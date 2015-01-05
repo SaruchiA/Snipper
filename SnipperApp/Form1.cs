@@ -68,6 +68,7 @@ namespace WindowsFormsApplication1
         {
          //   MessageBox.Show(result+"...");
             textBox2.Lines = result.Split(new string[]{"\n"},StringSplitOptions.None);
+            //!!! important- textbox.lines
         }
     } // end Form1
     
