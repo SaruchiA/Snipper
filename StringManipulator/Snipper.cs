@@ -10,17 +10,19 @@ namespace StringManipulator
     {
         private char[] specialChar = "()-\"\\//.',;? ".ToCharArray();
         public String result;
+        public int CutOff;
+
         private bool isSpecial(char c)
         {
             return specialChar.Contains(c);
         }
 
-        public string Snip(string input, int cutoffVal)
+        public string Snip(string input)
         {
 
-            if (cutoffVal > input.Length || cutoffVal == 0)
+            if (CutOff > input.Length || CutOff == 0)
             {
-                if (cutoffVal > input.Length)
+                if (CutOff > input.Length)
                 {
                     return input;
                 }
@@ -33,20 +35,20 @@ namespace StringManipulator
 
             else
             {
-                result = input.Substring(0, cutoffVal);
+                result = input.Substring(0, CutOff);
 
-                if ((cutoffVal + 1) <= input.Length)
+                if ((CutOff + 1) <= input.Length)
                 {
-                    result = input.Substring(0, cutoffVal + 1);
-                    if (!isSpecial(result[cutoffVal - 1]))
+                    result = input.Substring(0, CutOff + 1);
+                    if (!isSpecial(result[CutOff - 1]))
                     {
-                        if (isSpecial(input[cutoffVal]))
+                        if (isSpecial(input[CutOff]))
                         {
                             result = input;
                         }
                         else
                         {
-                            for (int i = (cutoffVal); i > 0; i--)
+                            for (int i = (CutOff); i > 0; i--)
                             {
                                 if (input[i] == ' ')
                                 {

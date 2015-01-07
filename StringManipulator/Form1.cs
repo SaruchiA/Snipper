@@ -49,9 +49,10 @@ namespace StringManipulator
             {
                 cutOff = int.Parse(textBox3.Text);
                 Snipper snipper = new Snipper();
+                snipper.CutOff = cutOff;
                 for (int i = 0; i < linesOfText.Count(); i++)
                 {
-                    result += snipper.Snip(linesOfText[i], cutOff)+"..."+Environment.NewLine;
+                    result += snipper.Snip(linesOfText[i])+"..."+Environment.NewLine;
                 }
 
             }
