@@ -52,14 +52,12 @@ namespace StringManipulator
                 snipper.CutOff = cutOff;
                 for (int i = 0; i < linesOfText.Count(); i++)
                 {
-                    result += snipper.Snip(linesOfText[i])+"..."+Environment.NewLine;
+                    result += snipper.Snip(linesOfText[i])+textBox4 .Text +Environment.NewLine;
                 }
 
             }
             showSnippedString(result);
-            /* EndSection:-returing result if cutoff is some invalid value*/ 
-
-           
+            /* EndSection:-returing result if cutoff is some invalid value*/          
             
                          
         }
@@ -69,7 +67,7 @@ namespace StringManipulator
         {
          //   MessageBox.Show(result+"...");
             textBox2.Lines = result.Split(new string[]{"\n"},StringSplitOptions.None);
-            //!!! important- textbox.lines
+
         }
     } // end Form1
    
