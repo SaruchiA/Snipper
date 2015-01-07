@@ -11,7 +11,6 @@ namespace StringManipulator
         private char[] specialChar = "()-\"\\//.',;? ".ToCharArray();
         public String result;
         public int CutOff;
-
         private bool isSpecial(char c)
         {
             return specialChar.Contains(c);
@@ -36,7 +35,6 @@ namespace StringManipulator
             else
             {
                 result = input.Substring(0, CutOff);
-
                 if ((CutOff + 1) <= input.Length)
                 {
                     result = input.Substring(0, CutOff + 1);
