@@ -8,9 +8,11 @@ namespace StringManipulator
 {
     public class Snipper
     {
-        private char[] specialChar = "()-\"\\//.',;? ".ToCharArray();
+        private String specialChar = "()-\"\\//.',;?";
         public String result;
         public int CutOff;
+        public bool snip_dir;
+
         private bool isSpecial(char c)
         {
             return specialChar.Contains(c);
@@ -18,7 +20,7 @@ namespace StringManipulator
 
         public string Snip(string input)
         {
-
+            
             if (CutOff > input.Length || CutOff == 0)
             {
                 if (CutOff > input.Length)
@@ -46,15 +48,32 @@ namespace StringManipulator
                         }
                         else
                         {
-                            for (int i = (CutOff); i > 0; i--)
+                            if (snip_dir)
                             {
-                                if (input[i] == ' ')
+                                for (int i = (CutOff); i > 0; i--)
                                 {
-                                    int d = i;
-                                    result = input.Substring(0, d);
-                                    break;
+                                    if (input[i] == ' ')
+                                    {
+                                        int d = i;
+                                        result = input.Substring(0, d);
+                                        break;
+                                    }
+                                }
+                           }
+                            else
+                            {
+
+                                for (int i = (CutOff); i <(input.Length ) ; i++)
+                                {
+                                    if (input[i] == ' ')
+                                    {
+                                        int d = i;
+                                        result = input.Substring(0, d);
+                                        break;
+                                    }
                                 }
                             }
+                            
                         }
                     }
                 }
