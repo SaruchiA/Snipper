@@ -37,6 +37,7 @@ namespace StringManipulator
             else
             {
                 result = input.Substring(0, CutOff);
+
                 if ((CutOff + 1) <= input.Length)
                 {
                     result = input.Substring(0, CutOff + 1);
@@ -62,7 +63,7 @@ namespace StringManipulator
                            }
                             else
                             {
-
+                               // result = input.Substring(0, CutOff);
                                 for (int i = (CutOff); i <(input.Length ) ; i++)
                                 {
                                     if (input[i] == ' ')

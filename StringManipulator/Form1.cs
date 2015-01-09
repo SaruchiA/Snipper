@@ -75,6 +75,12 @@ namespace StringManipulator
              textBox2.Lines = result.Split(new string[] { "\n" }, StringSplitOptions.None);
             
         }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Visible = true;
+        }
     } // end Form1
    
 }
