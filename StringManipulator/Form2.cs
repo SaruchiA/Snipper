@@ -34,6 +34,7 @@ namespace StringManipulator
         {
             Form3 form3 = new Form3();
             form3.Show();
+            this.Visible = false;
         }
     }
 }
